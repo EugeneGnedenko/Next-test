@@ -1,0 +1,19 @@
+.workers {
+  @apply mt-20 flex flex-col gap-y-10;
+}
+
+.workerItem {
+  @apply flex hover:bg-gray-100 p-6 transition duration-200;
+}
+
+.workerAvatar {
+  @apply max-w-60 max-h-60 min-w-2  w-full h-full;
+}
+
+.workerFullName {
+  @apply text-2xl;
+}
+
+.workerMail {
+  @apply ml-1 text-green-500;
+}

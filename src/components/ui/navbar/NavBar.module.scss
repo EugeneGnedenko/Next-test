@@ -1,0 +1,19 @@
+.header {
+  @apply mb-10 border-b py-6 px-10 flex justify-between;
+}
+
+.headerTitle {
+  @apply font-bold text-2xl text-green-500;
+}
+
+.headerNav {
+  @apply font-bold text-xl flex gap-x-3;
+}
+
+.headerNavItem {
+  @apply hover:text-green-500;
+}
+
+.headerNavItemActive {
+  @apply text-green-500;
+}
