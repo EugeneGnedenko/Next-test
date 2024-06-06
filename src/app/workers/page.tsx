@@ -1,14 +1,14 @@
 import WorkersList from "@/components/ui/workers-list/WorkersList";
 import { WorkersService } from "@/services/workers.service";
 
-const getAllUsers = async () => {
+const getAllWorkers = async () => {
   const { data } = await WorkersService.getAll();
 
   return data;
 };
 
 export default async function Workers() {
-  const data = await getAllUsers();
+  const data = await getAllWorkers();
 
   return (
     <main className="mx-auto max-w-3xl px-4 sm:pb-6 lg:max-w-7xl">
