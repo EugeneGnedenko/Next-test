@@ -1,14 +1,9 @@
 import { WorkersService } from "@/services/workers.service";
 import styles from "./page.module.scss";
 
-const getWorkerById = async (id: string) => {
-  const { data } = await WorkersService.getById(id);
-  return data;
-};
-
 export async function generateStaticParams() {
   const workers = await WorkersService.getAll();
-  return workers.data.map((worker) => ({
+  return workers.map((worker) => ({
     id: worker.id.toString(),
   }));
 }
@@ -20,7 +15,7 @@ interface IWorkerParams {
 }
 
 export default async function Worker({ params }: IWorkerParams) {
-  const data = await getWorkerById(params.id);
+  const data = await WorkersService.getById(params.id);
 
   return (
     <main className={styles.container}>
