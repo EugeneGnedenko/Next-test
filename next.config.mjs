@@ -5,14 +5,7 @@ const nextConfig = {
   output: "export",
   distDir: "dist",
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "https://reqres.in/img/faces",
-        port: "",
-        pathname: "/assets",
-      },
-    ],
+    unoptimized: true,
   },
 };
 
