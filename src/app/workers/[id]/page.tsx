@@ -15,8 +15,8 @@ export default async function Workers({ params }: { params: IWorkerParams }) {
   const data = await getWorkersById(params.id as string);
 
   return (
-    <main className="mx-auto max-w-3xl px-4 sm:pb-6 lg:max-w-7xl">
-      <div className="flex flex-col md:flex-row">
+    <main className={styles.container}>
+      <div className={styles.wrapper}>
         <div className={styles.workerAvatarContainer}>
           <img
             src={data.avatar}
@@ -25,11 +25,11 @@ export default async function Workers({ params }: { params: IWorkerParams }) {
           />
         </div>
 
-        <div className="mt-8 md:ml-20 md:mt-20">
-          <h2 className="text-2xl md:text-5xl ">
+        <div className={styles.mainInfo}>
+          <h2 className={styles.title}>
             {data.first_name} {data.last_name}
           </h2>
-          <p className="text-green-500  md:text-xl md:mt-1">{data.email}</p>
+          <p className={styles.subtitle}>{data.email}</p>
         </div>
       </div>
     </main>
