@@ -3,16 +3,24 @@ import styles from "./page.module.scss";
 
 const getWorkerById = async (id: string) => {
   const { data } = await WorkersService.getById(id);
-
   return data;
 };
 
-interface IWorkerParams {
-  id: string;
+export async function generateStaticParams() {
+  const workers = await WorkersService.getAll();
+  return workers.data.map((worker) => ({
+    id: worker.id.toString(),
+  }));
 }
 
-export default async function Worker({ params }: { params: IWorkerParams }) {
-  const data = await getWorkerById(params.id as string);
+interface IWorkerParams {
+  params: {
+    id: string;
+  };
+}
+
+export default async function Worker({ params }: IWorkerParams) {
+  const data = await getWorkerById(params.id);
 
   return (
     <main className={styles.container}>
